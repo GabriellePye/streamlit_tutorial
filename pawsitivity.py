@@ -79,14 +79,30 @@ st.markdown("""
 footer {
     width: 100%;
     background: #f6eee3;
+    border: 2px solid white; /* Match other container borders */
+    border-radius: 15px; /* Rounded corners */
     padding: 10px 0;
     margin-top: 20px;
 }
-
 footer p {
     text-align: center;
     color: #996a56;
     margin: 0;
+}
+
+/* Center the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Streamlit native button styling (if needed) */
+button.css-1q8dd3e { /* Adjust this class based on Streamlit's generated class for buttons */
+    background-color: #996a56 !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 15px !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -112,8 +128,13 @@ st.markdown("""
 if "dog_image" not in st.session_state:
     st.session_state.dog_image = None
 
+# Center the button in its container
+st.markdown("""
+<div class="button-container">
+""", unsafe_allow_html=True)
 if st.button("Get a New Dog Image 🐕"):
     st.session_state.dog_image = get_dog_img()
+st.markdown("</div>", unsafe_allow_html=True)
 
 if st.session_state.dog_image:
     st.markdown("""
@@ -134,4 +155,3 @@ st.markdown("""
     <p>© 2024 Gabrielle Pye, Rockborne. All rights reserved.</p>
 </footer>
 """, unsafe_allow_html=True)
-
