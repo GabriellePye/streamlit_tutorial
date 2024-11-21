@@ -1,0 +1,7 @@
+requirements.txt
+
+streamlit
+requests
+pandas
+numpy
+python-dotenv
