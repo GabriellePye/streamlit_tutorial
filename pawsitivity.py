@@ -19,11 +19,12 @@ st.markdown("""
 /* background */
 .stApp {
     background: url('https://i.ibb.co/2kgHSWf/Screenshot-21-11-2024-113536-www-pinterest-com.jpg');
-    background-size: cover; 
-    background-position: top;
+    background-repeat: repeat; /* This repeats the background image */
+    background-size: auto; /* Keeps the original size of the image */
+    background-position: top center; /* Ensures the image stays centered at the top */
 }
             
-/* Container to center the image */
+/* Container to center the logo */
 .logo-container {
     text-align: center;                /* Center align the content */
     margin-bottom: 20px;               /* Add some spacing below the image */
@@ -31,15 +32,14 @@ st.markdown("""
 
 /* Logo image styling */
 .logo-container img {
-    width: 400px;                      /* Adjust the logo width as desired */
+    width: 500px;                      /* Adjust the logo width as desired */
     height: auto;                      /* Maintain aspect ratio */
 }
  
-/* styling for subheader + other text elements */
+/* styling for subheader*/
 .subheader-container {
     border: 2px solid white;
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.1);
+    background: #f6eee3;  /* Solid background color */
     padding: 20px;
     border-radius: 15px;
     text-align: center;
@@ -56,7 +56,7 @@ st.markdown("""
 
 st.markdown("""
 <div class='logo-container'>
-    <img src="https://i.ibb.co/DMz3K4H/U.png" alt="Pawsitivity" style="display: block; margin: 0 auto;">
+    <img src="https://i.ibb.co/s6bhCM8/U-removebg-preview.png" alt="Pawsitivity" style="display: block; margin: 0 auto;">
     <div class='subheader-container'>
         <h2>Bringing you paws-itively fun dog facts, one tail-wag at a time!</h2>
     </div>
