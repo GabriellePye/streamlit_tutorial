@@ -79,24 +79,29 @@ streamlit run app.py
 ### FAQ
 
 **1. How do I install Streamlit?**
+
 Use the following command 
 ```bash
 pip install streamlit
 ```
 
 **2. WHat do I do if the app doesn't open in browser?**
+
 Check terminal output for local URL eg. http://localhost:8501 and paste into your browser 
 
 **3. How do I fix 'ModuleNotFoundError?'**
+
 Ensure all dependencies are installed using 
 ```bash
 pip install -r requirements.txt
 ```
 
 **4. Can I deploy this app online?** 
+
 Yes, you can! Streamlit apps can be deployed for free using <a href='https://streamlit.io/'>Streamlit Community Cloud</a> 😄
 
 **5. Why do I see a 'Permission Denied' error?**
+
 This often happens when you run Streamlit without the proper permissions. Try:
 ```bash
 sudo streamlit run app.py
