@@ -135,7 +135,7 @@ st.markdown("""
 # -------------------------
 
 # Create columns to center the button
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 # Place the button in the middle column (col2)
 with col1:
@@ -143,6 +143,8 @@ with col1:
 with col2:
     center_button = st.button('Get a New Dog Image 🐕')  # Center the button
 with col3:
+    center_button = st.button('Get a New Cat Image 🐕')  # Center the button
+with col4:
     pass
 
 # -------------------------
