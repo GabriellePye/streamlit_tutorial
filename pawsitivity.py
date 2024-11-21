@@ -67,10 +67,10 @@ st.markdown("""
 .dog-img-container, .empty-state-container {
     border: 2px solid white;
     background: #f6eee3;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     text-align: center;
-    max-width: 80%;
+    max-width: 100%;
     margin: 20px auto;
     color: #996a56;
 }
