@@ -39,10 +39,10 @@ st.markdown("""
 .subheader-container {
     border: 2px solid white;
     background: #f6eee3;  /* Solid background color */
-    padding: 20px;
+    padding: 12px;
     border-radius: 15px;
     text-align: center;
-    max-width: 90%;  /* Wider container */
+    max-width: 100%;  /* Wider container */
     margin: 0 auto;
     color: #996a56;  /* Text color */
 }
