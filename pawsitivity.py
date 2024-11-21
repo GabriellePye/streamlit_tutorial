@@ -95,7 +95,6 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50vh; /* Take up half the screen height */
 }
 </style>
 """, unsafe_allow_html=True)
