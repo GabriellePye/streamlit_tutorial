@@ -21,9 +21,9 @@ def get_dog_img():
     headers = {"x-api-key": api_key}  # Pass the API key in the headers
     response = requests.get(dog_img_ep, headers=headers)
     if response.status_code == 200: 
-        # Parse JSON response
+        # Parse JSON response and return the image URL
         data = response.json()
-        return data[0]['url']  # Fetch the correct key for image URL
+        return data[0]['url']
     else:
         return None  # Return None if the request fails
 
@@ -63,15 +63,27 @@ st.markdown("""
     color: #996a56;
 }
 
-/* Dog image container */
-.dog-img-container, .empty-state-container {
+/* Dog Image Display Container */
+.dog-img-container {
     border: 2px solid white;
     background: #f6eee3;
-    padding: 12px;
+    padding: 20px;
     border-radius: 15px;
     text-align: center;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 80%;
+    margin: 20px auto;
+    color: #996a56;
+}
+
+/* Empty State Message Container */
+.empty-state-container {
+    border: 2px solid white;
+    background: #f6eee3;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 80%;
+    margin: 20px auto;
     color: #996a56;
 }
 
@@ -88,13 +100,6 @@ footer p {
     text-align: center;
     color: #996a56;
     margin: 0;
-}
-
-/* Centering the button */
-.button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -113,23 +118,43 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------------
-# 3. Dog Image Display
+# 3. Layout with Columns and Button
+# -------------------------
+
+# Create columns to center the button
+col1, col2, col3, col4, col5 = st.columns(5)
+
+# Place the button in the middle column (col3)
+with col1:
+    pass
+with col2:
+    pass
+with col3:
+    center_button = st.button('Get a New Dog Image 🐕')  # Center the button
+with col4:
+    pass
+with col5:
+    pass
+
+# -------------------------
+# 4. Dog Image Display Logic
 # -------------------------
 
 # Persist the displayed image across interactions
 if "dog_image" not in st.session_state:
     st.session_state.dog_image = None
 
-# Center the button in a container
-st.markdown("""
-<div class="button-container">
-""", unsafe_allow_html=True)
-if st.button("Get a New Dog Image 🐕"):
+# Fetch a new dog image when the button is clicked
+if center_button:
     st.session_state.dog_image = get_dog_img()
-st.markdown("</div>", unsafe_allow_html=True)
 
-# Display the dog image or prompt
+# -------------------------
+# 5. Display Dog Image or Empty State
+# -------------------------
+
+# Check if a dog image has been fetched, else show the empty state message
 if st.session_state.dog_image:
+    # Show the dog image in a container
     st.markdown("""
         <div class="dog-img-container">
             <h3>🐾 Random Dog Image 🐾</h3>
@@ -137,6 +162,7 @@ if st.session_state.dog_image:
     """, unsafe_allow_html=True)
     st.image(st.session_state.dog_image, use_column_width=True)
 else:
+    # Show the empty state message when no image is fetched
     st.markdown("""
         <div class="empty-state-container">
             <h3>🐾 Welcome to Pawsitivity! 🐾</h3>
@@ -145,7 +171,7 @@ else:
     """, unsafe_allow_html=True)
 
 # -------------------------
-# 4. Footer
+# 6. Footer
 # -------------------------
 
 st.markdown("""
