@@ -22,3 +22,5 @@ st.markdown("""
     background-size: cover; 
     background-position: top;
 }
+</style>
+""", unsafe_allow_html=True)
