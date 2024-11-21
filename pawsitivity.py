@@ -64,7 +64,7 @@ st.markdown("""
 }
 
 /* Dog image container */
-.dog-img-container {
+.dog-img-container, .empty-state-container {
     border: 2px solid white;
     background: #f6eee3;
     padding: 20px;
@@ -90,19 +90,12 @@ footer p {
     margin: 0;
 }
 
-/* Center the button container */
+/* Centering the button */
 .button-container {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 20px 0;
-}
-
-/* Streamlit native button styling (if needed) */
-button.css-1q8dd3e { /* Adjust this class based on Streamlit's generated class for buttons */
-    background-color: #996a56 !important;
-    border: none !important;
-    color: white !important;
-    border-radius: 15px !important;
+    height: 50vh; /* Take up half the screen height */
 }
 </style>
 """, unsafe_allow_html=True)
@@ -128,7 +121,7 @@ st.markdown("""
 if "dog_image" not in st.session_state:
     st.session_state.dog_image = None
 
-# Center the button in its container
+# Center the button in a container
 st.markdown("""
 <div class="button-container">
 """, unsafe_allow_html=True)
@@ -136,6 +129,7 @@ if st.button("Get a New Dog Image 🐕"):
     st.session_state.dog_image = get_dog_img()
 st.markdown("</div>", unsafe_allow_html=True)
 
+# Display the dog image or prompt
 if st.session_state.dog_image:
     st.markdown("""
         <div class="dog-img-container">
@@ -144,7 +138,12 @@ if st.session_state.dog_image:
     """, unsafe_allow_html=True)
     st.image(st.session_state.dog_image, use_column_width=True)
 else:
-    st.write("Click the button to fetch a dog image!")
+    st.markdown("""
+        <div class="empty-state-container">
+            <h3>🐾 Welcome to Pawsitivity! 🐾</h3>
+            <p>Click the button above to fetch your first dog image!</p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # -------------------------
 # 4. Footer
