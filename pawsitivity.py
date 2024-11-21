@@ -29,7 +29,7 @@ def get_dog_img():
     if response.status_code == 200: 
         # Parse JSON response
         data = response.json()
-        return data[0]['fact'] # Get the first fact from the list
+        return data[0]['url'] # Fetch the image url
     else:
         return "Sorry, couldn't fetch a dog image at the moment."
 
@@ -72,7 +72,7 @@ st.markdown("""
 }
 
 /* Container for the dog fact display */
-.dog-fact-container {
+.dog-img-container {
     border: 2px solid white;
     background: #f6eee3;
     padding: 20px;
@@ -120,9 +120,9 @@ st.markdown("""
 if st.button("Get a New Dog Image 🐕"): # Create button for interactivity
     img = get_dog_img()
     
-    # Custom HTML display for dog fact
+    # Custom HTML display for dog image
     st.markdown(f"""
-        <div class="dog-fact-container">
+        <div class="dog-img-container">
             <h3>🐾 Random Dog Image 🐾</h3>
             <p>{img}</p>
         </div>
