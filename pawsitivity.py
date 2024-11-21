@@ -7,8 +7,31 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import requests
+from dotenv import load_dotenv
+import os
 
-# API 
+#-- API --#
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Access the API key
+api_key = os.getenv("api_key")
+
+# API endpoint
+dog_img_ep = "https://api.thedogapi.com/v1/images/search"
+
+# Function to fetch a random dog fact
+def get_dog_img():
+    headers = {"x-api-key": api_key}  # Pass the API key in the headers
+    response = requests.get(dog_img_ep, headers=headers)
+    if response.status_code == 200: 
+        # Parse JSON response
+        data = response.json()
+        return data[0]['fact'] # Get the first fact from the list
+    else:
+        return "Sorry, couldn't fetch a dog image at the moment."
 
 # -------------------------
 # 1. Background CSS
@@ -45,9 +68,35 @@ st.markdown("""
     text-align: center;
     max-width: 100%;  /* Wider container */
     margin: 0 auto;
-    color: #996a56;  /* Text color */
+    color: #996a56;  /* Text colour */
 }
-            
+
+/* Container for the dog fact display */
+.dog-fact-container {
+    border: 2px solid white;
+    background: #f6eee3;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 80%;
+    margin: 20px auto;
+    color: #996a56;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: #f6eee3;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    text-align: center;
+    color: #996a56;
+    margin: 0;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -59,7 +108,35 @@ st.markdown("""
 <div class='logo-container'>
     <img src="https://i.ibb.co/mc9sCFh/U-removebg-preview.png" alt="Pawsitivity" style="display: block; margin: 0 auto;">
     <div class='subheader-container'>
-        <h2>🐶 Bringing you paws-itively fun dog facts - one tail-wag at a time! 🐶</h2>
+        <h2>🐶 Bringing you paws-itively fun dog images - one tail-wag at a time! 🐶</h2>
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+# -------------------------
+# 3. Dog images, widgets, and display
+# -------------------------
+
+if st.button("Get a New Dog Image 🐕"): # Create button for interactivity
+    img = get_dog_img()
+    
+    # Custom HTML display for dog fact
+    st.markdown(f"""
+        <div class="dog-fact-container">
+            <h3>🐾 Random Dog Image 🐾</h3>
+            <p>{img}</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+# ----
+# 4.Footer
+# ----
+
+st.markdown("""
+    <footer>
+        <p>© 2024 Gabrielle Pye, Rockborne. All rights reserved.</p>
+    </footer>
+""", unsafe_allow_html=True)
+
+
+
