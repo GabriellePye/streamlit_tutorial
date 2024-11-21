@@ -18,7 +18,7 @@ st.markdown("""
 <style>
 /* background */
 .stApp {
-    background: url('https://i.ibb.co/2kgHSWf/Screenshot-21-11-2024-113536-www-pinterest-com.jpg');
+    background: url('https://e1.pxfuel.com/desktop-wallpaper/693/150/desktop-wallpaper-dog-paw-print-backgrounds-dog-bone-thumbnail.jpg');
     background-repeat: repeat; /* This repeats the background image */
     background-size: auto; /* Keeps the original size of the image */
     background-position: top center; /* Ensures the image stays centered at the top */
@@ -36,15 +36,15 @@ st.markdown("""
     height: auto;                      /* Maintain aspect ratio */
 }
  
-/* styling for subheader*/
 .subheader-container {
     border: 2px solid white;
     background: #f6eee3;  /* Solid background color */
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    max-width: 80%;  /* Adjusted for centering */
+    max-width: 90%;  /* Wider container */
     margin: 0 auto;
+    color: #996a56;  /* Text color */
 }
             
 </style>
