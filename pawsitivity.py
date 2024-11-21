@@ -67,10 +67,10 @@ st.markdown("""
 .dog-img-container {
     border: 2px solid white;
     background: #f6eee3;
-    padding: 20px;
+    padding: 12px;
     border-radius: 15px;
     text-align: center;
-    max-width: 80%;
+    max-width: 100%;
     margin: 20px auto;
     color: #996a56;
 }
@@ -79,10 +79,10 @@ st.markdown("""
 .empty-state-container {
     border: 2px solid white;
     background: #f6eee3;
-    padding: 20px;
+    padding: 12px;
     border-radius: 15px;
     text-align: center;
-    max-width: 80%;
+    max-width: 100%;
     margin: 20px auto;
     color: #996a56;
 }
@@ -128,12 +128,8 @@ col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
     pass
 with col2:
-    pass
-with col3:
     center_button = st.button('Get a New Dog Image 🐕')  # Center the button
-with col4:
-    pass
-with col5:
+with col3:
     pass
 
 # -------------------------
