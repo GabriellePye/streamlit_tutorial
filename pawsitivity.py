@@ -58,7 +58,7 @@ st.markdown("""
 <div class='logo-container'>
     <img src="https://i.ibb.co/mc9sCFh/U-removebg-preview.png" alt="Pawsitivity" style="display: block; margin: 0 auto;">
     <div class='subheader-container'>
-        <h2>Bringing you paws-itively fun dog facts, one tail-wag at a time!</h2>
+        <h2>:dog: Bringing you paws-itively fun dog facts - one tail-wag at a time! :dog:</h2>
     </div>
 </div>
 """, unsafe_allow_html=True)
