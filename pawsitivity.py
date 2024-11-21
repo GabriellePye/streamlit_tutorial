@@ -11,15 +11,28 @@ import os
 
 # Load environment variables
 load_dotenv()
-api_key = os.getenv("api_key")
+dog_api_key = os.getenv("dog_api_key")
+cat_api_key = os.getenv("cat_api_key")
 
 # API endpoint for dog images
 dog_img_ep = "https://api.thedogapi.com/v1/images/search"
+cat_img_ep = "https://api.thecatapi.com/v1/images/search"
 
 # Function to fetch a random dog image
 def get_dog_img():
-    headers = {"x-api-key": api_key}  # Pass the API key in the headers
+    headers = {"x-api-key": dog_api_key}  # Pass the API key in the headers
     response = requests.get(dog_img_ep, headers=headers)
+    if response.status_code == 200: 
+        # Parse JSON response and return the image URL
+        data = response.json()
+        return data[0]['url']
+    else:
+        return None  # Return None if the request fails
+    
+# Function to fetch a random cat image
+def get_cat_img():
+    headers = {"x-api-key": cat_api_key}  # Pass the API key in the headers
+    response = requests.get(cat_img_ep, headers=headers)
     if response.status_code == 200: 
         # Parse JSON response and return the image URL
         data = response.json()
@@ -112,7 +125,7 @@ st.markdown("""
 <div class='logo-container'>
     <img src="https://i.ibb.co/mc9sCFh/U-removebg-preview.png" alt="Pawsitivity">
     <div class='subheader-container'>
-        <h2>🐶 Bringing you paws-itively fun dog images - one tail-wag at a time! 🐶</h2>
+        <h2>🐶 Bringing you paws-itively fun animal images - one tail-wag at a time! 🐶</h2>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -124,7 +137,7 @@ st.markdown("""
 # Create columns to center the button
 col1, col2, col3 = st.columns(3)
 
-# Place the button in the middle column (col3)
+# Place the button in the middle column (col2)
 with col1:
     pass
 with col2:
@@ -162,7 +175,7 @@ else:
     st.markdown("""
         <div class="empty-state-container">
             <h3>🐾 Welcome to Pawsitivity! 🐾</h3>
-            <p>Click the button above to fetch your first dog image!</p>
+            <p>Click the button above to fetch your first animal image!</p>
         </div>
     """, unsafe_allow_html=True)
 
