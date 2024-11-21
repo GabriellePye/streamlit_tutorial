@@ -16,29 +16,30 @@ import numpy as np
 
 st.markdown("""
 <style>
-/* background */
+/* Background */
 .stApp {
     background: url('https://e1.pxfuel.com/desktop-wallpaper/693/150/desktop-wallpaper-dog-paw-print-backgrounds-dog-bone-thumbnail.jpg');
     background-repeat: repeat; /* This repeats the background image */
     background-size: auto; /* Keeps the original size of the image */
-    background-position: top center; /* Ensures the image stays centered at the top */
+    background-position: top center; /* Ensures the image stays centred at the top */
 }
             
 /* Container to center the logo */
 .logo-container {
-    text-align: center;                /* Center align the content */
+    text-align: center;                /* Centre align the content */
     margin-bottom: 20px;               /* Add some spacing below the image */
 }
 
 /* Logo image styling */
 .logo-container img {
-    width: 500px;                      /* Adjust the logo width as desired */
+    width: 500px;                      /* Adjust the logo width */
     height: auto;                      /* Maintain aspect ratio */
 }
  
+/* Container for subheader display */
 .subheader-container {
-    border: 2px solid white;
-    background: #f6eee3;  /* Solid background color */
+    border: 2px solid white; /* Thickness and colour of the container border */
+    background: #f6eee3;  /* Solid background colour */
     padding: 12px;
     border-radius: 15px;
     text-align: center;
@@ -51,7 +52,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -------------------------
-# 2. Logo
+# 2. Logo, subheader
 # -------------------------
 
 st.markdown("""
