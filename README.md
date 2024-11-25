@@ -70,11 +70,13 @@ streamlit run app.py
 
 ### Features Overview 
 
-- **Customizable Themes:** How to style apps with CSS.
+- **Customisable Themes:** How to style apps with CSS.
 - **Interactive Widgets:** Examples of user-input features.
 - **API Integration:** Using OpenAI or similar APIs to add functionality.
 
 ### Examples 
+
+![Description of GIF](https://i.ibb.co/qr3BDgC/5-Easy-Ways-Howto-Screen-Recordon-Lenovo-Laptop-Awesome-Screenshot-Recorderand4morepages-Work-Micros.gif)
 
 ### FAQ
 
