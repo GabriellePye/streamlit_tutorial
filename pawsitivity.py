@@ -12,11 +12,11 @@ import os
 # Load environment variables
 load_dotenv()
 dog_api_key = os.getenv("dog_api_key")
-cat_api_key = os.getenv("cat_api_key")
+# cat_api_key = os.getenv("cat_api_key")
 
 # API endpoint for dog images
 dog_img_ep = "https://api.thedogapi.com/v1/images/search"
-cat_img_ep = "https://api.thecatapi.com/v1/images/search"
+# cat_img_ep = "https://api.thecatapi.com/v1/images/search"
 
 # Function to fetch a random dog image
 def get_dog_img():
@@ -30,15 +30,15 @@ def get_dog_img():
         return None  # Return None if the request fails
     
 # Function to fetch a random cat image
-def get_cat_img():
-    headers = {"x-api-key": cat_api_key}  # Pass the API key in the headers
-    response = requests.get(cat_img_ep, headers=headers)
-    if response.status_code == 200: 
+# def get_cat_img():
+    # headers = {"x-api-key": cat_api_key}  # Pass the API key in the headers
+    # response = requests.get(cat_img_ep, headers=headers)
+    # if response.status_code == 200: 
         # Parse JSON response and return the image URL
-        data = response.json()
-        return data[0]['url']
-    else:
-        return None  # Return None if the request fails
+      #  data = response.json()
+      #  return data[0]['url']
+    # else:
+        # return None  # Return None if the request fails
 
 # -------------------------
 # 1. Background CSS
@@ -135,14 +135,17 @@ st.markdown("""
 # -------------------------
 
 # Create columns to center the button
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 # Place the button in the middle column (col2)#
 
 with col1:
-    center_button = st.button('Get a New Dog Image 🐕')  # Center the button
+    pass
 with col2:
-    center_button = st.button('Get a New Cat Image 🐈')  # Center the button
+    dog_button = st.button('Get a New Dog Image 🐕')  # Center the button
+with col3:
+    pass
+   # center_button = st.button('Get a New Cat Image 🐈')  # Center the button
 
 # -------------------------
 # 4. Dog Image Display Logic
@@ -153,7 +156,7 @@ if "dog_image" not in st.session_state:
     st.session_state.dog_image = None
 
 # Fetch a new dog image when the button is clicked
-if center_button:
+if dog_button:
     st.session_state.dog_image = get_dog_img()
 
 # -------------------------
